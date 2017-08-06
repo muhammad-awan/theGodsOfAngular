@@ -1,28 +1,32 @@
-import { Component } from '@angular/core';
+﻿import { Component } from '@angular/core';
+import { HeroDetailComponent } from './hero-detail.component';
+import { Hero } from './hero';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  template: `
-    <h1>{{title}}</h1>
-    <h2>{{hero.name}} details!</h2>
-    <div><label>id: </label>{{hero.id}}</div>
-    <div>
-      <label>name: </label>
-      <input [(ngModel)]="hero.name" placeholder="name">
-    </div>
-    `,
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
   title = 'The Mighty Gods of Olympus';
-  hero : Hero = {
-    id: 1,
-    name : 'Zeus'
-  };
+  selectedHero: Hero;
+  heroes = HEROES;
+  onSelectaroo(hero: Hero): void {
+    this.selectedHero = hero;
+  }
 }
 
-export class Hero {
-  id: number;
-  name: string;
-}
+const HEROES: Hero[] = [
+  { id: 11, name: 'Hades' },
+  { id: 12, name: 'Kratos' },
+  { id: 13, name: 'Ares' },
+  { id: 14, name: 'Helios' },
+  { id: 15, name: 'Athena' },
+  { id: 16, name: 'Aphrodite' },
+  { id: 17, name: 'Dynama' },
+  { id: 18, name: 'Dr IQ' },
+  { id: 19, name: 'Magma' },
+  { id: 20, name: 'Tornado' }
+];
+
